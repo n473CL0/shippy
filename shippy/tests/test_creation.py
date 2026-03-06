@@ -1,8 +1,10 @@
 from shippy.models import CleaningProfile, Biofouling, OperatingProfile, FuelType, Vessel
 import math
 
-def test_cleaning_profile():
+# Some testing functions to check the code is producing the same numbers as the excel model.
 
+def test_cleaning_profile():
+    
     cleaning_profile = CleaningProfile(1.05, 4, 220)
 
     assert cleaning_profile is not None
