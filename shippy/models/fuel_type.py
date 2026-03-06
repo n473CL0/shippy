@@ -3,7 +3,7 @@ class FuelType():
     def __init__(
         self,
         price: float,
-        co2_emmissions: float
+        carbon_emitted: float
     ):
         self.price = price
-        self.co2_emmissions = co2_emmissions
+        self.co2_emmissions = carbon_emitted
