@@ -1,7 +1,5 @@
-from shippy.models import CleaningProfile, Biofouling, OperatingProfile, FuelType
+from shippy.models import CleaningProfile, Biofouling, OperatingProfile, FuelType, Vessel
 import math
-
-from shippy.models.vessel import Vessel
 
 def test_cleaning_profile():
 
