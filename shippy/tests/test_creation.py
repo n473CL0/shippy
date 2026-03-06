@@ -14,16 +14,16 @@ def test_cleaning_profile():
 def test_linear_biofouling():
 
     cleaning_profile = CleaningProfile(1.05, 4, 220)
-    biofouling = Biofouling()
+    biofouling = Biofouling(0.3)
 
     assert biofouling is not None
     assert math.isclose(biofouling.period_efficiency(cleaning_profile), 1.0875)
 
 def test_operating_profile():
 
-    VLSFO = FuelType(380, 3.1)
+    vlsfo = FuelType(price=380, carbon_emitted=3.1)
+    fuel_types = { vlsfo : 163.0 }
 
-    fuel_types = { VLSFO : 163.0 }
     operating_profile = OperatingProfile(
         operating_days=345, 
         share_in_EU_ETS=0.5, 
@@ -37,11 +37,12 @@ def test_operating_profile():
 
 def test_vessel():
 
-    cleaning_profile = CleaningProfile(1.05, 4, 220)
-    biofouling = Biofouling()
-    VLSFO = FuelType(380, 3.1)
+    cleaning_profile = CleaningProfile(post_clean_efficiency=1.05, clean_frequency=4, service_price=220)
+    biofouling = Biofouling(year_increase=0.3)
 
-    fuel_types = { VLSFO : 163.0 }
+    vlsfo = FuelType(price=380, carbon_emitted=3.1)
+    fuel_types = { vlsfo : 163.0 }
+    
     operating_profile = OperatingProfile(
         operating_days=345, 
         share_in_EU_ETS=0.5, 
@@ -53,7 +54,7 @@ def test_vessel():
         length=370,
         operating_profile=operating_profile,
         biofouling_model=biofouling,
-        cleaning_profile=cleaning_profile,
+        cleaning_profile=cleaning_profile
     )
 
     assert vessel is not None
