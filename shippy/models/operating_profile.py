@@ -1,12 +1,13 @@
 from .fuel_type import FuelType
+from data_extraction import EU_ETS_Price
 
 class OperatingProfile():
 
     def __init__(
-        self,
+        self,z
         operating_days: int,
         share_in_EU_ETS: float,
-        EU_ETS_price: float,
+        EU_ETS_price: float = EU_ETS_Price,
         fuel_types: dict[FuelType, float], # number of tonnes consumed daily
     ):
         self.operating_days = operating_days
