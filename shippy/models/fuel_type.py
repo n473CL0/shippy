@@ -1,4 +1,4 @@
-from data_extraction import VLSFO_Price
+from .data_extraction import VLSFO_Price
 class FuelType():
 
     def __init__(
