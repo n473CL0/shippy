@@ -1,4 +1,5 @@
 from .fuel_type import FuelType
+from .data_extraction import EU_ETS_Price
 
 class OperatingProfile():
 
@@ -6,8 +7,8 @@ class OperatingProfile():
         self,
         operating_days: int,
         share_in_EU_ETS: float,
-        EU_ETS_price: float,
         fuel_types: dict[FuelType, float], # number of tonnes consumed daily
+        EU_ETS_price: float = EU_ETS_Price,
     ):
         self.operating_days = operating_days
         self.share_in_EU_ETS = share_in_EU_ETS
